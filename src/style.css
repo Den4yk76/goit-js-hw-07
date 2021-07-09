@@ -1,0 +1,4 @@
+.img-styles:not(:last-child) {
+    margin-right: 30px;
+    display: inline-block;
+}

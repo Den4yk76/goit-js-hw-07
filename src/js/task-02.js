@@ -9,10 +9,15 @@ const ingredients = [
 
 const listEl = document.querySelector('ul#ingredients');
 
-ingredients.forEach(element => {
-    console.log('element', element);
-    const markupElements = document.createElement('li');
-    markupElements.textContent = element;
-    console.log(markupElements);
-    listEl.appendChild(markupElements);
-});
+const makeMarkup = ingredients => {
+    return ingredients.map(ingredient => {
+        const liEl = document.createElement('li');
+        liEl.textContent = ingredient;
+        return liEl;
+    });
+};
+
+const markupElements = makeMarkup(ingredients);
+listEl.append(...markupElements);
+
+makeMarkup(ingredients);
