@@ -13,26 +13,11 @@ const images = [
     },
 ];
 
-const galaryEl = document.querySelector('ul#gallery');
+const galleryEl = document.querySelector('ul#gallery');
 
-const makeGallary = images => {
-    return images.map(image => {
-        const imgEl = document.createElement('img');
-        const liEl = document.createElement('li');
-        liEl.appendChild(imgEl);
-        imgEl.src = image.url;
-        imgEl.alt = image.alt;
-        imgEl.classList.add('img-styles');
-        imgEl.height = 300;
-        imgEl.width = 300;
-        imgEl.style.borderRadius = '50%';
-        // console.log(liEl);
-        // console.log(imgEl);
-        return imgEl;
-    });
+const makeElementOfGallery = ({ url, alt }) => {
+    return `<li class="list-style cute"><img class="round" src="${url}" alt="${alt}" width="350" height="300"></li>`;
 };
 
-const markupElements = makeGallary(images);
-galaryEl.append(...markupElements);
-
-makeGallary(images);
+const makeGallerymarkup = images.map(makeElementOfGallery).join('');
+galleryEl.insertAdjacentHTML('afterbegin', makeGallerymarkup);
