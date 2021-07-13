@@ -8,6 +8,5 @@ refs.inputEl.addEventListener('input', onInputChange);
 function onInputChange(event) {
     if (event.currentTarget.value.trim()) {
         refs.outputEl.textContent = event.currentTarget.value;
-        console.log(event.currentTarget.value.trim());
     } else refs.outputEl.textContent = 'незнакомец';
 }
