@@ -3,10 +3,13 @@ const inputEl = document.querySelector('#controls input');
 const renderBtnEl = document.querySelector('[data-action="render"]');
 const destroyBtnEl = document.querySelector('[data-action="destroy"]');
 
+let width = 10;
+let height = 10;
+
 function createBoxes(amount = inputEl.value) {
     const divContainer = [];
-    let width = 20;
-    let height = 20;
+    width += 10;
+    height += 10;
     for (let i = 0; i < amount; i += 1) {
         width += 10;
         height += 10;
@@ -32,6 +35,8 @@ function renderBoxes() {
 function destroyBoxes() {
     boxesContainerEl.innerHTML = '';
     inputEl.value = '';
+    width = 10;
+    height = 10;
 }
 
 renderBtnEl.addEventListener('click', renderBoxes);
