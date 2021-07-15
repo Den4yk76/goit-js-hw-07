@@ -3,19 +3,18 @@ const inputEl = document.querySelector('#controls input');
 const renderBtnEl = document.querySelector('[data-action="render"]');
 const destroyBtnEl = document.querySelector('[data-action="destroy"]');
 
-let width = 10;
-let height = 10;
+let width = 20;
+let height = 20;
 
 function createBoxes(amount = inputEl.value) {
     const divContainer = [];
-    width += 10;
-    height += 10;
     for (let i = 0; i < amount; i += 1) {
         width += 10;
         height += 10;
         divContainer.push(
             `<div class="box" style="background-color: ${randomColor()} ; width: ${width}px; height: ${height}px"></div>`,
         );
+        console.log('width: ', width, 'height: ', height);
     }
     return divContainer;
 }
@@ -29,14 +28,14 @@ function randomColor() {
 }
 
 function renderBoxes() {
-    boxesContainerEl.insertAdjacentHTML('afterbegin', createBoxes().join(''));
+    boxesContainerEl.insertAdjacentHTML('beforeend', createBoxes().join(''));
 }
 
 function destroyBoxes() {
     boxesContainerEl.innerHTML = '';
     inputEl.value = '';
-    width = 10;
-    height = 10;
+    width = 20;
+    height = 20;
 }
 
 renderBtnEl.addEventListener('click', renderBoxes);
