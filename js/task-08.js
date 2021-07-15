@@ -5,9 +5,13 @@ const destroyBtnEl = document.querySelector('[data-action="destroy"]');
 
 function createBoxes(amount = inputEl.value) {
     const divContainer = [];
+    let width = 20;
+    let height = 20;
     for (let i = 0; i < amount; i += 1) {
+        width += 10;
+        height += 10;
         divContainer.push(
-            `<div class="box" style="background-color: ${randomColor()} ;"></div>`,
+            `<div class="box" style="background-color: ${randomColor()} ; width: ${width}px; height: ${height}px"></div>`,
         );
     }
     return divContainer;
